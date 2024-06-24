@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from .models import Tutorial
+from .models import Tutorial, Comment
 from rest_framework import serializers
 
 
@@ -34,3 +34,7 @@ class TutorialSerializer(serializers.ModelSerializer):
         fields = ['tutorialNo','title','content']
 
 
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'

@@ -4,8 +4,8 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Tutorial
-from .serializer import TutorialSerializer , RegisterUserSerializer , LoginSerializer
+from .models import Tutorial, Comment
+from .serializer import TutorialSerializer, RegisterUserSerializer, LoginSerializer, CommentSerializer
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -50,3 +50,8 @@ class TutorialViewset(viewsets.ModelViewSet):
     serializer_class = TutorialSerializer
     queryset = Tutorial.objects.all()
     permission_classes = [permissions.IsAuthenticated]
+
+
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
